@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git branch: 'main', url: 'https://github.com/nandkishor12/Jenking.git'
+                git branch: 'main', url: 'https://github.com/nandkishor12/code99.git'
             }
         }
     }
