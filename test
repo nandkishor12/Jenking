@@ -6,6 +6,8 @@ pipeline {
 git branch: 'main', url: 'https://github.com/nandkishor12/code99.git'
 sh 'kubectl cluster-info'
 sh'kubectl get namespaces '
+sh'kubectl get all'
+sh'kubectl get all'
             }
         }
     }
