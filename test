@@ -7,11 +7,10 @@ pipeline {
             }
         }
     }
-stages {
-        stage('List Files') {
+stage('List Files') {
             steps {
                 bat 'dir'
             }
         }
-    }
+    
 }
