@@ -8,10 +8,9 @@ pipeline {
         }
     }
 stages {
-stage('Get Kubernetes services') {
+        stage('Get Kubernetes Nodes') {
             steps {
-                sh 'kubectl get services'
-
+                sh 'kubectl cluster-info'
             }
         }
     }
