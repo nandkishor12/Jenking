@@ -8,7 +8,7 @@ sh 'kubectl cluster-info'
 sh'kubectl get namespaces '
 sh'kubectl get all'
 sh'kubectl get all'
-sh 'kubectl get cm kubelet-config -n kube-system -o yaml'
+sh 'kubectl get cm '
             }
         }
     }
