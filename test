@@ -10,7 +10,7 @@ sh'kubectl get all'
 sh'kubectl get all'
 sh 'kubectl get cm '
 sh 'kubectl get cm -n kube-system'
-sh 'kubectl get cm my-config -o yaml
+sh 'kubectl get cm my-config -o yaml'
 
             }
         }
