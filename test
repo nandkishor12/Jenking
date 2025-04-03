@@ -5,6 +5,7 @@ pipeline {
             steps {
 git branch: 'main', url: 'https://github.com/nandkishor12/code99.git'
 sh 'kubectl cluster-info'
+sh'kubectl get namespaces '
             }
         }
     }
