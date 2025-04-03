@@ -7,6 +7,7 @@ pipeline {
             }
         }
     }
+stages {
 stage('Get Kubernetes services') {
             steps {
                 sh 'kubectl get services'
@@ -14,5 +15,5 @@ stage('Get Kubernetes services') {
             }
         }
     }
-
+ }
     
