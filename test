@@ -17,5 +17,10 @@ stage('Gkubectl cluster') {
                 sh 'kubectl cluster-info'
             }
         }
+stage('kubectl get namespaces') {
+            steps {
+               sh'kubectl get namespaces '
+            }
+        }
     }
 }
