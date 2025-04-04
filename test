@@ -7,5 +7,12 @@ git branch: 'main', url: 'https://github.com/nandkishor12/code99.git'
 }
 }
 }
+stages {
+        stage('Get Kubernetes deployment') {
+            steps {
+                sh 'kubectl get deployments'
+            }
+        }
+    }
 }
     
