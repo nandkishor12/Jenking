@@ -3,16 +3,14 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-git branch: 'main', url: 'https://github.com/nandkishor12/code99.git'
-}
-}
-}
-stages {
-        stage('Get Kubernetes deployment') {
+                git branch: 'main', url: 'https://github.com/nandkishor12/code99.git'
+            }
+        }
+
+        stage('Get Kubernetes Deployment') {
             steps {
                 sh 'kubectl get deployments'
             }
         }
     }
 }
-    
