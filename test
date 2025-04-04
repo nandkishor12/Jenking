@@ -22,5 +22,27 @@ stage('kubectl get namespaces') {
                sh'kubectl get namespaces '
             }
         }
+
+stage('kubectl get all') {
+            steps {
+               sh'kubectl get all'
+            }
+        }
+stage('kubectl get cm ') {
+            steps {
+               sh 'kubectl get cm '
+            }
+        }
+stage('kubectl get cm s') {
+            steps {
+               sh 'kubectl get cm -n kube-system'
+            }
+        }
+
+stage('kubectl get cm y') {
+            steps {
+               sh 'kubectl get cm my-config -o yaml'
+            }
+        }
     }
 }
