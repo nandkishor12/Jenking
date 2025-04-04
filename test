@@ -39,7 +39,7 @@ stage('kubectl get cm s') {
             }
         }
 
-stage('kubectl get cm y') {
+stage('kubectl get ConfigMap') {
             steps {
                sh 'kubectl get cm my-config -o yaml'
             }
