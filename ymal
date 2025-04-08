@@ -1,1 +1,74 @@
+pipeline {
+    agent any
+    stages {
+
+        stage('Clone Repository') {
+            steps {
+                git branch: 'main', url: 'https://github.com/nandkishor12/code99.git'
+            }
+        }
+
+        stage('Create Nginx Deployment YAML') {
+            steps {
+                sh '''#!/bin/bash
+cat <<EOF > nginx-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+EOF
+'''
+            }
+        }
+
+        stage('Apply Nginx Deployment') {
+            steps {
+                sh 'kubectl apply -f nginx-deployment.yaml'
+            }
+        }
+
+        stage('Expose Nginx Service') {
+            steps {
+                sh '''#!/bin/bash
+# Check if service already exists
+if ! kubectl get svc nginx-deployment; then
+  kubectl expose deployment nginx-deployment --type=NodePort --port=80
+else
+  echo "Service nginx-deployment already exists"
+fi
+'''
+            }
+        }
+
+        stage('Verify Deployment and Service') {
+            steps {
+                sh '''
+                echo "Deployments:"
+                kubectl get deployments
+
+                echo "Pods:"
+                kubectl get pods
+
+                echo "Services:"
+                kubectl get svc
+                '''
+            }
+        }
+    }
+}
 
